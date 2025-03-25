@@ -67,7 +67,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Project Overview: Midterm Project
 - **Author:** Jethro Dungog, Kian Fratz Pagobo
-# Purpose and scope
+**Purpose and scope:**
 This repository hosts a midterm project that demonstrates the development of a CRUD (Create, Read, Update, Delete) application built using the Laravel framework. The project serves as a practical example of applying MVC architecture, modern web development practices, and effective source code management with Git and GitHub. It is designed to showcase:
 1. The implementation of a structured Laravel application.
 2. Best practices in branching, committing, and pull request workflows.
