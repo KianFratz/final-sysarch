@@ -64,3 +64,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## New Feature: About Us Page
+This project now includes an About Us page which can be accessed at `/about`.
+
+## Git Workflow
+- **Branching:** Use feature branches for new developments.
+- **Commits:** Use descriptive commit messages (e.g., `feat:`, `fix:`).
+- **Pull Requests:** Merge feature branches into `main` after code reviews.
+
+## Setup
+1. Clone the repository: git clone https://github.com/YourUsername/sysarch-prelim-project.git cd sysarch-prelim-project
+2. Install dependencies:
+composer install npm install && npm run dev
+3. Set up your `.env` file and run migrations.
+
