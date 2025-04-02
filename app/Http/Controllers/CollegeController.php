@@ -97,4 +97,25 @@ class CollegeController extends Controller
         return redirect()->route('colleges.index')
                         ->with('success', 'College deleted successfully');
     }
+
+    /**
+     * Search functionality
+     */
+
+     /**
+     * Team: Pagobo
+     * Members: Kian Fratz Pagobo, Jethro Dungog
+     */
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $results = College::where('CollegeName', 'LIKE', "%{$query}%")
+                        ->orWhere('CollegeCode', 'LIKE', "%{$query}%")
+                        ->get();
+        
+        // Also get all colleges for the second table
+        $colleges = College::where('IsActive', true)->get();
+        
+        return view('colleges.index', compact('results', 'colleges'));
+    }
 }
