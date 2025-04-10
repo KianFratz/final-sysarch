@@ -31,20 +31,29 @@ class CollegeController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+{
+    try {
         $validated = $request->validate([
             'CollegeName' => 'required|string|max:255',
             'CollegeCode' => 'required|string|max:50|unique:colleges,CollegeCode',
+            'CollegeEmail' => 'nullable|email|max:255',
+            'CollegePhone' => 'nullable|string|max:20',
         ]);
 
         $validated['IsActive'] = true;
 
-        College::create($validated);
+        $college = College::create($validated);
+
+        Log::info('College created successfully', $college->toArray());
 
         return redirect()->route('colleges.index')
                         ->with('success', 'College created successfully');
+    } catch (\Exception $e) {
+        Log::error('Failed to create college', ['error' => $e->getMessage()]);
+        return redirect()->back()->withInput()->with('error', 'An error occurred while creating the college.');
     }
+}
+
 
     /**
      * Display the specified resource.
@@ -68,8 +77,8 @@ class CollegeController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, College $college)
-    {
-        //
+{
+    try {
         $validated = $request->validate([
             'CollegeName' => 'required|string|max:255',
             'CollegeCode' => [
@@ -78,23 +87,36 @@ class CollegeController extends Controller
                 'max:50',
                 Rule::unique('colleges', 'CollegeCode')->ignore($college->CollegeID, 'CollegeID')
             ],
+            'CollegeEmail' => 'nullable|email|max:255',
+            'CollegePhone' => 'nullable|string|max:20',
         ]);
-        
+
         $college->update($validated);
+
+        Log::info('College updated successfully', $college->toArray());
 
         return redirect()->route('colleges.index')
                         ->with('success', 'College updated successfully');
+    } catch (\Exception $e) {
+        Log::error('Failed to update college', ['error' => $e->getMessage()]);
+        return redirect()->back()->withInput()->with('error', 'An error occurred while updating the college.');
     }
-
+}
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(College $college)
-    {
-        // Implement soft delete by setting IsActive to false
+{
+    try {
         $college->update(['IsActive' => false]);
+
+        Log::warning('College soft deleted', ['CollegeID' => $college->CollegeID]);
 
         return redirect()->route('colleges.index')
                         ->with('success', 'College deleted successfully');
+    } catch (\Exception $e) {
+        Log::error('Failed to delete college', ['error' => $e->getMessage()]);
+        return redirect()->route('colleges.index')->with('error', 'An error occurred while deleting the college.');
     }
+}
 }
