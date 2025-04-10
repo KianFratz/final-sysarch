@@ -64,3 +64,25 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Project Overview: Midterm Project
+- **Author:** Jethro Dungog, Kian Fratz Pagobo 
+
+
+**Purpose and scope:**
+This repository hosts a midterm project that demonstrates the development of a CRUD (Create, Read, Update, Delete) application built using the Laravel framework. The project serves as a practical example of applying MVC architecture, modern web development practices, and effective source code management with Git and GitHub. It is designed to showcase:
+1. The implementation of a structured Laravel application.
+2. Best practices in branching, committing, and pull request workflows.
+3. The integration of new features and bug fixes in a collaborative environment.
+
+## Git Workflow
+- **Branching:** Use feature branches for new developments.
+- **Commits:** Use descriptive commit messages (e.g., `feat:`, `fix:`).
+- **Pull Requests:** Merge feature branches into `main` after code reviews.
+
+## Setup
+1. Clone the repository: git clone https://github.com/YourUsername/sysarch-prelim-project.git cd sysarch-prelim-project
+2. Install dependencies:
+composer install npm install && npm run dev
+3. Set up your `.env` file and run migrations.
+

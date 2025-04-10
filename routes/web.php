@@ -21,3 +21,4 @@ Route::get('/colleges/search', [CollegeController::class, 'search'])->name('coll
 Route::get('/departments/search', [DepartmentController::class, 'search'])->name('departments.search');
 Route::resource('colleges', CollegeController::class);
 Route::resource('departments', DepartmentController::class);
+Route::get('/about', [App\Http\Controllers\PageController::class, 'about'])->name('about');
