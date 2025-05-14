@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\College;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Log;
 
 class CollegeController extends Controller
 {
@@ -117,11 +118,11 @@ class CollegeController extends Controller
     } catch (\Exception $e) {
         Log::error('Failed to delete college', ['error' => $e->getMessage()]);
         return redirect()->route('colleges.index')->with('error', 'An error occurred while deleting the college.');
+        }
     }
-
-    /**
-     * Search functionality
-     */
+        /**
+         * Search functionality
+         */
 
      /**
      * Team: Pagobo
@@ -140,4 +141,4 @@ class CollegeController extends Controller
         return view('colleges.index', compact('results', 'colleges'));
     }
 }
-}
+
