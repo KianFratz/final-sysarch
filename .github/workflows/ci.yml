@@ -62,10 +62,6 @@ jobs:
           DB_PASSWORD: password
         run: php artisan migrate --force
 
-      # ✅ Add this to fix permission issue
-      - name: Make phpunit executable
-        run: chmod +x vendor/bin/phpunit
-
       - name: Run PHPUnit
         env:
           DB_CONNECTION: mysql
