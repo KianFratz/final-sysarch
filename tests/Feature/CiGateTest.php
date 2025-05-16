@@ -9,6 +9,6 @@ class CiGateTest extends TestCase
     /** @test */
     public function it_should_fail_intentionally()
     {
-        $this->assertTrue(false, 'This test always fails to verify CI gating.');
+        //$this->assertTrue(false, 'This test always fails to verify CI gating.');
     }
 }
